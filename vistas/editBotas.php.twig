@@ -1,0 +1,52 @@
+{% extends "plantillaBase.php.twig" %}
+
+    {% block head %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="estilos/editBotas.css">
+    {% endblock %}
+
+    {% block contenido %}
+
+	</div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action="index.php" method="POST">
+                <input type="hidden" name="ope" value="editarBotas"/>
+                <input type="hidden" name="con" value="admin"/>
+
+                <label><strong>Id:</strong></label>
+                <input required class="form-control" type="text" id="nom" name="idBo" value="{{bot.idBo}}" readonly/>
+                </br>
+                <label><strong>Marca:</strong></label>
+                <select class="form-control" name="idMar">
+                    {% for item in mar %}
+                        {% if item.idMar == bot.idMar %}
+                            <option selected="true" value="{{item.idMar}}">{{item.nombre}}</option>
+                        {% else %}
+                            <option value="{{item.idMar}}">{{item.nombre}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                </br>
+                <label><strong>info:</strong></label>
+                </br>
+                <textarea required class="form-control" id="nom" name="info">{{bot.info}}</textarea>
+                </br>
+                <label><strong>Precio:</strong></label>
+                </br>
+                <input required class="form-control" type="text" name="precio" value="{{bot.precio}}"/>
+                </br>
+                <label><strong>foto:</strong></label>
+                </br>
+                <textarea required class="form-control" id="nom" name="foto">{{bot.foto}}</textarea>
+                </br>
+                <button class="btn btn-primary" type="submit">Guardar</button>
+                <div class="text-right">
+                <a href="index.php?con=admin&ope=listarBotas">Volver</a>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+    {% endblock %}

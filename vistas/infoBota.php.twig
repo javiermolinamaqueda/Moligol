@@ -1,0 +1,46 @@
+{% extends "plantillaBase.php.twig" %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% endblock %}
+
+{% block contenido %}
+
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#">Moligol</a>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="index.php?con=botas&ope=listar">Inicio</a>
+					</li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?con=carrito&ope=listar">Carrito</a>
+                    </li>
+				</ul> 
+
+			</div>	<!-- end-collapse -->
+
+	</div>
+    <div class="row">
+        <div class="col-md-6" style="padding-left:90px; margin-top:20px;">
+                <img src="{{bot.foto}}" style="width:20rem; margin:0 auto;" alt="...">
+            
+        </div>
+        <div class="col-md-6" style="border:1px solid; border-radius:15px; padding-top:70px; margin-top:20px;">
+            <p class="text-left"><strong>Características:</strong> {{bot.info}}</p> 
+            <p class="text-left"><strong>Marca:</strong> {{bot.nombre}}</p>
+            <p class="text-left"><strong>Precio:</strong> {{bot.precio}}</p>
+            <form action="index.php">
+                <input type="hidden" name="con" value="carrito"/>
+                <input type="hidden" name="ope" value="add"/>
+                <input type="hidden" name="id" value="{{bot.idBo}}"/>
+                <label><strong>Cantidad:</strong></label>
+                <input type="number" name="cantidad"/>
+                <button class="btn btn-primary" type="submit">Añadir al carrito</button>
+        </div>
+    
+        
+
+{% endblock %}

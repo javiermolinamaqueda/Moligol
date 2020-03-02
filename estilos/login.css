@@ -1,0 +1,10 @@
+img{
+    margin:0 auto;
+    display:block;
+}
+
+form{
+    border:1px solid rgb(89, 193, 219);
+    border-radius:20px;
+    padding:15px;
+}

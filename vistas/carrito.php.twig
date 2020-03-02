@@ -1,0 +1,51 @@
+{% extends "plantillaBase.php.twig" %}
+
+    {% block head %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% endblock %}
+
+    {% block contenido %}
+
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Moligol</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.php?con=botas&ope=listar">Inicio</a>
+                </li>
+            </ul> 
+
+        </div>	<!-- end-collapse -->
+
+	</div>
+    <h1>Carrito</h1>
+    {% if dat != null %}
+        <table class="table" style="margin-top:50px;">
+            <thead class="thead"> 
+                <th>Id</th>
+                <th class="text-right">Marca</th>
+                <th class="text-right">Cantidad</th>
+                <th class="text-right">Precio</th>
+                <th></th>
+                <th></th>
+            </thead>
+            
+            <tbody>
+                {% for item in dat  %}
+                <tr>
+                    <td>{{item.idBo}}</td>
+                    <td class="text-right">{{item.nombre}}</td>
+                    <td class="text-right">{{item.cantidad}}</td>
+                    <td class="text-right">{{item.precio}}</td>
+                    <td class="text-center"><img src="{{item.foto}}" alt="" style="width:6rem;"></td>
+                    <td> <a href="index.php?con=carrito&ope=borrar&idBo={{item.idBo}}">Borrar</a> </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a type="button" href="index.php?con=carrito&ope=comprar">Comprar</a>
+    {% else %}
+        <p>El carrito se encuentra vacío</p>
+    {% endif %}
+    {% endblock %}

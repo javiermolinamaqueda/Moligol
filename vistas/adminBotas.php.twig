@@ -1,0 +1,54 @@
+{% extends "plantillaBase.php.twig" %}
+
+    {% block head %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% endblock %}
+
+    {% block contenido %}
+
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Moligol</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.php?con=usuario&ope=listar">Usuarios</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?con=admin&ope=listarBotas">Botas</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="index.php?con=sesion&ope=cerrarSesion">Cerrar sesion</a>
+                </li>
+            </ul> 
+
+        </div>	<!-- end-collapse -->
+
+	</div>
+    <h1>Botas</h1>
+        <table class="table" style="margin-top:50px;">
+            <thead class="thead"> 
+                <th class="text-right">Id</th>
+                <th class="text-right">Marca</th>
+                <th class="text-right">Info</th>
+                <th class="text-right">Precio</th>
+                <th class="text-right">Foto</th>
+                <th></th>
+            </thead>
+            <a href="index.php?con=admin&ope=addBota">Añadir Bota</a>
+            <tbody>
+                {% for item in bot  %}
+                <tr>
+                    <td>{{item.idBo}}</td>
+                    <td class="text-right">{{item.nombre}}</td>
+                    <td class="text-right">{{item.info}}</td>
+                    <td class="text-right">{{item.precio}}</td>
+                    <td class="text-right"><img src="{{item.foto}}" alt="" style="width:8rem;"></td>
+                    <td> <a href="index.php?con=admin&ope=editarBotas&idBo={{item.idBo}}">Editar</a> </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% endblock %}

@@ -1,0 +1,43 @@
+{% extends "plantillaBase.php.twig" %}
+
+    {% block head %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="estilos/editUsu.css">
+    {% endblock %}
+
+    {% block contenido %}
+
+	</div>
+    <div class="row" style="margin-top:25px;">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action="index.php" method="POST">
+                <input type="hidden" name="ope" value="editar"/>
+                <input type="hidden" name="con" value="usuario"/>
+                <input type="hidden" name="idUsu" value="{{usu.idUsu}}"/>
+
+                <label><strong>Nombre:</strong></label>
+                <input class="form-control" type="text" id="nom" name="nombre" value="{{usu.Nombre}}"/>
+                </br>
+                <label><strong>Apellidos:</strong></label>
+                <input class="form-control" type="text" id="ape" name="ape" value="{{usu.Apellidos}}"/>
+                </br>
+                <label><strong>Email:</strong></label>
+                <input class="form-control" type="text" id="nom" name="email" value="{{usu.Email}}"/>
+                </br>
+                <label><strong>Pass:</strong></label>
+                <input class="form-control" type="text" id="nom" name="pass" value="{{usu.Pass}}"/>
+                </br>
+                <label><strong>Admin:</strong></label>
+                <input class="form-control" type="text" id="nom" name="admin" value="{{usu.Admin}}"/>
+                </br>
+
+                <button class="btn btn-primary" type="submit">Guardar</button>
+                <div class ="text-right">
+                    <a href="index.php?con=usuario&ope=listar">Volver</a>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+    {% endblock %}

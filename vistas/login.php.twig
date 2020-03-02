@@ -1,0 +1,38 @@
+{% extends "plantillaBase.php.twig" %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="estilos/login.css">
+{% endblock %}
+
+{% block contenido %}
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <img class="text-center" src="balon.png" style="width:11rem;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form method="post">
+            <input type="hidden" name="con" value="sesion"/>
+            <input type="hidden" name="ope" value="login"/>
+            <div class="form-group">
+                <label><strong>Email</strong></label>
+                <input class="form-control" type="text" name="email" required/>
+            </div>
+            <div class="form-group">
+                <label><strong>Pass</strong></label>
+                <input class="form-control" type="password" name="pass" required/>
+            </div>
+            <button class="btn btn-primary" type="submit">Entrar</button>
+            </br>
+            <a href="index.php?con=sesion&ope=registro">Registro</a>
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

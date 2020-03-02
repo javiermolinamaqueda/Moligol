@@ -1,0 +1,42 @@
+{% extends "plantillaBase.php.twig" %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% endblock %}
+
+{% block contenido %}
+
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#">Moligol</a>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="index.php?con=botas&ope=listar">Inicio</a>
+					</li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?con=sesion&ope=cerrarSesion">Cerrar sesion</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?con=carrito&ope=listar">Carrito</a>
+                    </li>
+				</ul> 
+
+			</div>	<!-- end-collapse -->
+
+	</div>
+
+    <div class="row">
+    {% for item in dat %}
+        <div class="col-sm-6 col-md-3" style="margin-top:20px;">
+            <div class="card mx-auto" style="width:12rem;">
+                <a href="index.php?con=botas&ope=info&id={{item.idBo}}" class="thumbnail">
+                    <img src="{{item.foto}}" class="card-img-top" alt="...">
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
